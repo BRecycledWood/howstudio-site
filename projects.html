@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The HOW Wall — HOWstud.io</title>
+  <meta name="description" content="A living wall of what HOWstud.io has built: SaaS products, ai systems, and launched experiments." />
+  <link rel="icon" href="assets/how-studio-seal.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --cream: #F5F0E8; --dark: #1A2530; --teal: #2BBFBF;
+      --gold: #F5B800; --pink: #E91E8C; --blue: #5BC8E8;
+      --navy: #3D4F63; --slate: #2A3A4A;
+      --border-light: rgba(26,37,48,0.1);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, sans-serif; background: var(--cream); color: var(--dark); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+    a { text-decoration: none; color: inherit; }
+    nav { position: sticky; top: 0; background: #2A3A4A; border-bottom: 1px solid rgba(255,255,255,0.08); z-index: 200; padding: 16px 48px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { height: 26px; width: auto; display: block; }
+    .nav-links { display: flex; align-items: center; gap: 28px; }
+    .nav-link { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 500; color: rgba(255,255,255,0.6); letter-spacing: 0.08em; text-transform: uppercase; transition: color 180ms; }
+    .nav-link:hover { color: #fff; }
+    .nav-link.active { color: var(--teal); }
+    .nav-cta { padding: 9px 20px; border-radius: 9999px; background: transparent; border: 1px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.85); font-size: 12px; font-weight: 600; letter-spacing: 0.03em; transition: all 160ms; }
+    .nav-cta:hover { border-color: var(--teal); color: var(--teal); }
+    .wrap { max-width: 1120px; margin: 0 auto; padding: 0 48px; }
+    .page-header { padding: 80px 0 56px; }
+    .page-eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 600; color: var(--teal); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 16px; }
+    .page-hed { font-size: clamp(40px, 5.5vw, 72px); font-weight: 900; letter-spacing: -0.04em; line-height: 1.0; color: var(--dark); margin-bottom: 16px; }
+    .page-sub { font-size: 18px; color: rgba(26,37,48,0.55); line-height: 1.65; max-width: 560px; }
+    .wall-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; padding-bottom: 120px; }
+    .project-card { background: #fff; border: 1px solid var(--border-light); border-radius: 16px; padding: 32px; transition: transform 180ms, box-shadow 180ms; }
+    .project-card:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(26,37,48,0.1); }
+    .project-card.featured { border-color: var(--teal); box-shadow: 0 4px 24px rgba(43,191,191,0.12); }
+    .project-top { display: flex; justify-content: space-between; ngalign-items: flex-start; margin-bottom: 20px; }
+    .project-badge { font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 5px 9px; border-radius: 9999px; }
+    .badge-live { background: rgba(43,191,191,0.12); color: var(--teal); }
+    .badge-building { background: rgba(245,184,0,0.12); color: var(--gold); }
+    .badge-lab { background: rgba(91,200,232,0.12); color: var(--blue); }
+    .project-name { font-size: 22px; font-weight: 800; color: var(--dark); margin-bottom: 8px; line-height: 1.2; }
+    .project-tagline { font-size: 15px; color: rgba(26,37,48,0.6); line-height: 1.65; margin-bottom: 24px; }
+    .project-meta { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 24px; }
+    .meta-tag { font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 500; color: rgba(26,37,48,0.45); letter-spacing: 0.06em; background: rgba(26,37,48,0.05); padding: 4px 8px; border-radius: 4px; }
+    .project-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; color: var(--teal); transition: opacity 160ms; }
+    .project-link:hover { opacity: 0.7; }
+    footer { background: var(--dark); padding: 48px 0 28px; border-top: 1px solid rgba(255,255,255,0.06); }
+    .footer-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px; }
+    .footer-logo { height: 24px; width: auto; opacity: 1; }
+    .footer-nav { display: flex; gap: 24px; }
+    .footer-nav a { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: rgba(255,255,255,0.45); letter-spacing: 0.08em; text-transform: uppercase; transition: color 160ms; }
+    .footer-nav a:hover { color: var(--teal); }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: flex-start; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.06); flex-wrap: wrap; gap: 16px; }
+    .footer-copy { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: rgba(255,255,255,0.5); letter-spacing: 0.05em; line-height: 1.7; }
+    .footer-legal { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: rgba(255,255,255,0.3); letter-spacing: 0.04em; line-height: 1.75; text-align: right; }
+    .footer-legal a { color: rgba(255,255,255,0.4); text-decoration: underline; text-underline-offset: 3px; }
+    .footer-legal a:hover { color: var(--teal); }
+    @media (max-width: 860px) { .wrap { padding: 0 24px; } nav { padding: 14px 24px; } .nav-links { display: none; } .wall-grid { grid-template-columns: 1fr; } .footer-nav { display: none; } }
+  </style>
+</head>
+<body>
+  <nav>
+    <img class="nav-logo" src="assets/how-studio-logo-full-wh.png" alt="HOWstud.io" />
+    <div class="nav-links">
+      <a class="nav-link" href="index.html#hows">Method<sup>05</sup></a>
+      <a class="nav-link" href="index.html#services">Services<sup>03</sup></a>
+      <a class="nav-link active" href="projects.html">Work<sup>04</sup></a>
+    </div>
+    <a class="nav-cta" href="contact.html">Let's talk</a>
+  </nav>
+  <div class="wrap">
+    <div class="page-header">
+      <p class="page-eyebrow">The HOW Wall</p>
+      <h1 class="page-hed">What we've<br><span style="color:var(--teal)">built.</span></h1>
+      <p class="page-sub">A living wall of products, systems, and experiments shipped by HOWstud.io. Live products. Builds in progress. Lab projects.</p>
+    </div>
+    <div class="wall-grid">
+
+      <!-- AIRAudit -->
+      <div class="project-card featured">
+        <div class="project-top">
+          <span class="project-badge badge-live">Live</span>
+        </div>
+        <h2 class="project-name">AIRAudit</h2>
+        <p class="project-tagline">AI readiness assessment tool for organizations looking to build, adopt, or evaluate AI systems. Scored reports, delivered instantly.</p>
+        <div class="project-meta">
+          <span class="meta-tag">SaaS</span><span class="meta-tag">AI Readiness</span><span class="meta-tag">Lead Gen</span>
+        </div>
+        <a class="project-link" href="https://airaudit.city" target="_blank">airaudit.city &rarr;</a>
+      </div>
+
+      <!-- QuizProQuo -->
+      <div class="project-card">
+        <div class="project-top">
+          <span class="project-badge badge-live">Live</span>
+        </div>
+        <h2 class="project-name">QuizProQuo</h2>
+        <p class="project-tagline">Embeddable quiz and lead-generation platform. Branded assessments, email gated PDF reports, and analytics dashboard.</p>
+        <div class="project-meta">
+          <span class="meta-tag">SaaS</span><span class="meta-tag">Lead Gen</span><span class="meta-tag">Quiz</span>
+        </div>
+        <a class="project-link" href="https://quiz-pro-quo.onrender.com" target="_blank">quiz-pro-quo.onrender.com &rarr;</a>
+      </div>
+
+      <!-- NeverMiss -->
+      <div class="project-card">
+        <div class="project-top">
+          <span class="project-badge badge-live">Live</span>
+        </div>
+        <h2 class="project-name">NeverMiss</h2>
+        <p class="project-tagline">Missed calls assessment for service businesses. Quantifies revenue leakage from missed inbound calls and proposes AI-powered fixes.</p>
+        <div class="project-meta">
+          <span class="meta-tag">SaaS</span><span class="meta-tag">AI Systems</span><span class="meta-tag">Assessment</span>
+        </div>
+        <a class="project-link" href="https://nevermiss.howstud.io" target="_blank">nevermiss.howstud.io &rarr;</a>
+      </div>
+
+      <!-- AIBurn -->
+      <div class="project-card">
+        <div class="project-top">
+          <span class="project-badge badge-live">Live</span>
+        </div>
+        <h2 class="project-name">AIBurn</h2>
+        <p class="project-tagline">LLM cost calculator. Compare model pricing, estimate burn rates, and optimize AI spend across providers. Ad-supported, free to use.</p>
+        <div class="project-meta">
+          <span class="meta-tag">AI Tools</span><span class="meta-tag">Cost Calc</span><span class="meta-tag">LLM</span>
+        </div>
+        <a class="project-link" href="https://aiburn.howstudio.io" target="_blank">aiburn.howstudio.io &rarr;</a>
+      </div>
+
+      <!-- IO WHO? -->
+      <div class="project-card">
+        <div class="project-top">
+          <span class="project-badge badge-building">Building</span>
+        </div>
+        <h2 class="project-name">IO WHO?</h2>
+        <p class="project-tagline">Peer-to-peer personal loan tracking platform. Track money lent and borrowed between friends, family, and colleagues without the awkwardness.</p>
+        <div class="project-meta">
+          <span class="meta-tag">SaaS</span><span class="meta-tag">Fintech</span><span class="meta-tag">P2P</span>
+        </div>
+      </div>
+
+      <!-- Studio OS -->
+      <div class="project-card">
+        <div class="project-top">
+          <span class="project-badge badge-building">Building</span>
+        </div>
+        <h2 class="project-name">Studio OS</h2>
+        <p class="project-tagline">Internal founder operating system for HOWstud.io. Project tracking, PRDs, Pipeline Kanban, branding module, and agent console.</p>
+        <div class="project-meta">
+          <span class="meta-tag">Internal</span><span class="meta-tag">Ops System</span><span class="meta-tag">Next.js</span>
+        </div>
+      </div>
+
+      <!-- HNM Loft -->
+      <div class="project-card">
+        <div class="project-top">
+          <span class="project-badge badge-live">Live</span>
+        </div>
+        <h2 class="project-name">HNM Loft</h2>
+        <p class="project-tagline">Hospitality brand and property website for a boutique loft property. Brand identity, web design, and operations.</p>
+        <div class="project-meta">
+          <span class="meta-tag">Hospitality</span><span class="meta-tag">Brand</span><span class="meta-tag">Website</span>
+        </div>
+        <a class="project-link" href="https://hnmloft.com" target="_blank">hnmloft.com &rarr;</a>
+      </div>
+
+      <!-- Price Talk -->
+      <div class="project-card">
+        <div class="project-top">
+          <span class="project-badge badge-building">Building</span>
+        </div>
+        <h2 class="project-name">Price Talk</h2>
+        <p class="project-tagline">Modular bid, actuals, and invoice engine. Full project financial lifecycle from estimate to payment. Built for service businesses.</p>
+        <div class="project-meta">
+          <span class="meta-tag">SaaS</span><span class="meta-tag">Invoicing</span><span class="meta-tag">Bid</span>
+        </div>
+      </div>
+
+      <!-- NSIPA Call Center -->
+      <div class="project-card">
+        <div class="project-top">
+          <span class="project-badge badge-building">Building</span>
+        </div>
+        <h2 class="project-name">NSIPA Call Center</h2>
+        <p class="project-tagline">GHL + Vapi.ai voice agent system for Network Solutions IPA. Inbound call triage, real-time contact lookup, and agent escalation.</p>
+        <div class="project-meta">
+          <span class="meta-tag">AI Systems</span><span class="meta-tag">Voice</span><span class="meta-tag">GHL</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <footer>
+    <div class="wrap">
+      <div class="footer-row">
+        <img class="footer-logo" src="assets/how-studio-logo-full-wh.png" alt="HOWstud.io" />
+        <nav class="footer-nav">
+          <a href="index.html#hows">Methodology</a><a href="index.html#services">Services</a><a href="projects.html">Work</a><a href="contact.html">Contact</a>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-copy">&copy; 2026 HOWstud.io LLC. All rights reserved.<br>HOWstud.io is a registered trade name of HOW Studio LLC, Jersey City, NJ 07302.</div>
+        <div class="footer-legal">
+          <a href="privacy.html">Privacy Policy</a> &nbsp;&middot;&nbsp; <a href="terms.html">Terms of Service</a> &nbsp;&middot;&nbsp; <a href="contact.html">Contact</a><br>
+          HOWstud.io does not sell or share your personal data.<br>
+          All work and content &copy; HOWstud.io unless otherwise noted.
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
