@@ -1,0 +1,680 @@
+<!doctype html>
+  <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>HOWstud.io — Everything Starts With HOW</title>
+  <meta name="description" content="HOW isn't an acronym. It's the first question we ask before building anything. Apps, brands, and systems that actually ship." />
+  <link rel="icon" href="assets/how-studio-seal.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+            --cream:  #F5F0E8;
+            --dark:   #1A2530;
+      --teal:   #2BBFBF;
+      --gold:   #F5B800;
+              --pink:   #E91E8C;
+              --blue:   #5BC8E8;
+      --navy:   #3D4F63;
+      --slate:  #2A3A4A;
+      --border-light: rgba(26,37,48,0.1);
+      --border-dark:  rgba(255,255,255,0.09);
+}
+
+    html { scroll-behavior: smooth; }
+
+    body {
+            font-family: 'Inter', system-ui, sans-serif;
+      background: var(--cream);
+      color: var(--dark);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+}
+
+    a { text-decoration: none; color: inherit; }
+
+    .dot-grid::before {
+            content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background-image: radial-gradient(circle, rgba(0,0,0,0.06) 1px, transparent 1px);
+      background-size: 32px 32px;
+}
+    .dot-grid-light::before {
+            content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background-image: radial-gradient(circle, rgba(255,255,255,0.07) 1px, transparent 1px);
+      background-size: 32px 32px;
+}
+
+    section, nav, footer { position: relative; z-index: 1; }
+    .wrap { max-width: 1120px; margin: 0 auto; padding: 0 48px; }
+
+    #scroll-line-track {
+      position: fixed; left: 18px; top: 0; bottom: 0; width: 3px;
+      z-index: 999; pointer-events: none; transition: opacity 300ms;
+}
+    #scroll-line-track.hide-left { opacity: 0; }
+    #scroll-line-fill {
+      position: absolute; top: 0; left: 0; right: 0; height: 0%;
+      background: var(--pink); border-radius: 2px;
+      box-shadow: 0 0 8px 2px var(--pink);
+      transition: background 400ms, box-shadow 400ms;
+}
+    #scroll-bead {
+      position: fixed; left: 14px; top: 0;
+      width: 10px; height: 10px; border-radius: 50%;
+      background: var(--pink); z-index: 1000; pointer-events: none;
+      transition: top 60ms ease, background 400ms, left 400ms ease, right 400ms ease;
+}
+    #scroll-line-track-right {
+      position: fixed; right: 18px; top: 0; bottom: 0; width: 3px;
+      z-index: 999; pointer-events: none; opacity: 0; transition: opacity 300ms;
+}
+    #scroll-line-track-right.show-right { opacity: 1; }
+    #scroll-line-fill-right {
+      position: absolute; top: 0; left: 0; right: 0; height: 0%;
+      background: var(--pink); border-radius: 2px;
+      box-shadow: 0 0 8px 2px var(--pink);
+      transition: background 400ms, box-shadow 400ms;
+}
+
+    nav {
+            position: sticky; top: 0;
+      background: #2A3A4A;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      z-index: 200; padding: 16px 48px;
+      display: flex; align-items: center; justify-content: space-between;
+}
+    .nav-logo { height: 26px; width: auto; display: block; }
+    .nav-links { display: flex; align-items: center; gap: 28px; }
+    .nav-link {
+            font-family: 'JetBrains Mono', monospace;
+      font-size: 11px; font-weight: 500;
+      color: rgba(255,255,255,0.6); letter-spacing: 0.08em;
+      text-transform: uppercase; transition: color 180ms;
+}
+    .nav-link:hover { color: #fff; }
+        .nav-link sup { font-size: 9px; color: var(--teal); margin-left: 2px; vertical-align: super; }
+    .nav-cta {
+            padding: 9px 20px; border-radius: 9999px;
+      background: transparent; border: 1px solid rgba(255,255,255,0.2);
+      color: rgba(255,255,255,0.85); font-size: 12px; font-weight: 600;
+      letter-spacing: 0.03em; transition: all 160ms ease-out;
+}
+    .nav-cta:hover { border-color: var(--teal); color: var(--teal); }
+
+    .hero {
+            background-color: #1A2530;
+      min-height: 100vh;
+      display: flex; align-items: center;
+      position: relative; overflow: hidden; padding: 0;
+}
+    .hero-accent-bar {
+            position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--pink), var(--gold), var(--teal));
+      z-index: 2;
+}
+    .ghost-how {
+            position: absolute; right: -60px; top: 50%;
+      transform: translateY(-50%);
+      font-size: clamp(220px, 30vw, 460px);
+      font-weight: 900; letter-spacing: -0.07em; line-height: 1;
+      color: transparent;
+      -webkit-text-stroke: 2px rgba(43,191,191,0.45);
+      user-select: none; pointer-events: none; z-index: 0;
+      will-change: transform;
+}
+    .hero-body {
+            position: relative; z-index: 1;
+      max-width: 640px; padding: 80px 0 100px;
+}
+    .eyebrow {
+            font-family: 'JetBrains Mono', monospace;
+      font-size: 10px; font-weight: 500;
+      color: rgba(255,255,255,0.45); letter-spacing: 0.18em;
+      text-transform: uppercase; margin-bottom: 36px;
+      display: flex; align-items: center; gap: 10px;
+      opacity: 0; transform: translateY(8px);
+      animation: up 500ms 750ms forwards ease-out;
+}
+    .eyebrow::before {
+            content: ''; display: block; width: 24px; height: 1px;
+            background: var(--teal); opacity: 0.7;
+}
+    .hero-hed {
+            font-size: clamp(52px, 6.5vw, 96px);
+      font-weight: 900; letter-spacing: -0.04em;
+      line-height: 0.97; color: #fff; margin-bottom: 32px;
+      }
+    .hw-letter {
+            display: inline-block;
+      opacity: 0; transform: scale(0.2); filter: blur(8px);
+      transition: opacity 700ms cubic-bezier(0.16,1,0.3,1),
+                          transform 700ms cubic-bezier(0.16,1,0.3,1),
+                          filter 700ms cubic-bezier(0.16,1,0.3,1);
+}
+    .hw-letter.in { opacity: 1; transform: scale(1); filter: blur(0px); }
+    .hw-letter:hover { transform: scale(1.08) !important; transition-duration: 200ms !important; }
+    .hw-dot { display: inline-block; opacity: 0; transition: opacity 300ms ease; }
+    .hw-dot.in { opacity: 1; }
+    .letter-h { color: var(--pink); }
+    .letter-o { color: var(--gold); }
+    .letter-w { color: var(--teal); }
+    .hero-rest {
+            opacity: 0; transform: translateY(10px);
+      transition: opacity 500ms ease, transform 500ms ease;
+}
+    .hero-rest.in { opacity: 1; transform: translateY(0); }
+    .hero-sub {
+            font-size: 17px; font-weight: 400;
+      color: rgba(255,255,255,0.65); line-height: 1.75;
+      max-width: 500px; margin-bottom: 44px;
+}
+    .hero-sub em { font-style: normal; color: #fff; font-weight: 500; }
+        .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+    .scroll-caret {
+            position: absolute; bottom: 36px; left: 0;
+      display: flex; align-items: center; gap: 10px;
+      opacity: 0; animation: fadein 600ms 1400ms forwards;
+}
+    .scroll-caret span {
+            font-family: 'JetBrains Mono', monospace;
+      font-size: 10px; color: rgba(255,255,255,0.45);
+      letter-spacing: 0.14em; text-transform: uppercase;
+}
+    .caret-line {
+            width: 28px; height: 1px;
+      background: linear-gradient(to right, var(--teal), transparent);
+      animation: caretPulse 2.5s infinite ease-in-out;
+}
+    @keyframes caretPulse {
+            0%,100% { width: 20px; opacity: 0.4; }
+      50% { width: 36px; opacity: 1; }
+}
+
+    .btn {
+            display: inline-flex; align-items: center; justify-content: center;
+      padding: 13px 26px; border-radius: 9999px;
+      font-size: 13px; font-weight: 600; letter-spacing: 0.01em;
+      transition: all 150ms ease-out; cursor: pointer;
+}
+    .btn-primary { background: var(--teal); color: var(--dark); border: 1px solid var(--teal); }
+    .btn-primary:hover { background: #fff; border-color: #fff; transform: scale(1.02); }
+        .btn-primary:active { transform: scale(0.98); }
+    .btn-secondary { background: transparent; color: rgba(255,255,255,0.75); border: 1px solid rgba(255,255,255,0.2); }
+    .btn-secondary:hover { border-color: var(--teal); color: #fff; }
+        .btn-cta-primary { background: var(--dark); color: #fff; border: 1px solid var(--dark); }
+        .btn-cta-primary:hover { background: #2a3845; transform: scale(1.02); }
+    .btn-cta-secondary { background: transparent; color: var(--dark); border: 1px solid rgba(26,37,48,0.3); }
+    .btn-cta-secondary:hover { border-color: var(--dark); }
+
+    .specs-sec { background: var(--dark); padding: 120px 0; position: relative; overflow: hidden; }
+    .sec-label { display: flex; align-items: center; gap: 10px; margin-bottom: 48px; }
+    .sec-label-n { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: rgba(255,255,255,0.35); letter-spacing: 0.1em; }
+    .sec-label-rule { width: 24px; height: 1px; background: rgba(255,255,255,0.15); }
+    .sec-label-t { font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 600; color: rgba(255,255,255,0.35); letter-spacing: 0.15em; text-transform: uppercase; }
+    .sec-label.light .sec-label-n, .sec-label.light .sec-label-t { color: var(--navy); }
+    .sec-label.light .sec-label-rule { background: var(--border-light); }
+    .sec-hed { font-size: clamp(38px, 4.5vw, 64px); font-weight: 900; letter-spacing: -0.04em; line-height: 1.0; }
+    .sec-hed.on-dark { color: #fff; }
+          .sec-hed.on-light { color: var(--dark); }
+    .sec-hed .accent { color: var(--teal); }
+    .specs-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; margin-top: 56px; }
+    .spec-box { border: 2px solid rgba(255,255,255,0); border-radius: 12px; padding: 40px 36px; opacity: 0; transition: border-color 100ms, opacity 300ms; }
+    .spec-box.drawn { opacity: 1; animation: borderDraw 500ms ease-out forwards; }
+    @keyframes borderDraw {
+            0%   { border-color: rgba(255,255,255,0); }
+      25%  { border-top-color: rgba(255,255,255,0.5); }
+      50%  { border-right-color: rgba(255,255,255,0.5); }
+      75%  { border-bottom-color: rgba(255,255,255,0.5); }
+      100% { border-color: rgba(255,255,255,0.5); }
+}
+    .spec-row { display: flex; justify-content: space-between; align-items: baseline; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .spec-row:last-child { border-bottom: none; }
+    .spec-key { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: rgba(255,255,255,0.4); letter-spacing: 0.1em; text-transform: uppercase; }
+    .spec-val { font-size: 14px; font-weight: 600; color: #fff; }
+        .spec-val.counter-target { font-size: 22px; font-weight: 800; letter-spacing: -0.02em; }
+    .status-badge { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; }
+    .status-badge.live { color: var(--teal); }
+    .live-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--teal); display: inline-block; animation: livePulse 1.8s infinite ease-in-out; }
+    @keyframes livePulse { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
+    .founder-card { border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 36px; }
+    .founder-eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--teal); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 24px; display: flex; align-items: center; gap: 8px; }
+    .founder-eyebrow::before { content: ''; width: 16px; height: 1px; background: var(--teal); }
+          .founder-quote { font-size: 19px; font-weight: 700; line-height: 1.45; color: #fff; letter-spacing: -0.02em; margin-bottom: 20px; }
+        .founder-quote .hl { color: var(--teal); }
+    .founder-bio { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.75; margin-bottom: 28px; }
+    .founder-sig { display: flex; align-items: center; gap: 14px; }
+    .founder-avatar { width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, var(--pink), var(--teal)); display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 800; color: #fff; flex-shrink: 0; }
+        .founder-name { font-size: 13px; font-weight: 600; color: #fff; line-height: 1.3; }
+        .founder-title { font-size: 11px; color: rgba(255,255,255,0.4); font-family: 'JetBrains Mono', monospace; letter-spacing: 0.06em; }
+
+    .hows-sec { background: var(--navy); padding: 140px 0; position: relative; overflow: hidden; }
+    .hows-wm { position: absolute; right: -60px; top: 50%; transform: translateY(-50%); font-size: clamp(320px, 44vw, 600px); font-weight: 900; letter-spacing: -0.08em; color: transparent; -webkit-text-stroke: 1px rgba(43,191,191,0.12); pointer-events: none; user-select: none; line-height: 1; }
+    .hows-layout { display: grid; grid-template-columns: 320px 1fr; gap: 80px; align-items: start; }
+    .hows-sticky { position: sticky; top: 88px; }
+    .hows-sticky .sec-label.light .sec-label-n, .hows-sticky .sec-label.light .sec-label-t { color: rgba(255,255,255,0.4); }
+    .hows-sticky .sec-label.light .sec-label-rule { background: rgba(255,255,255,0.12); }
+    .hows-sticky .sec-hed.on-light { color: #fff; }
+          .hows-desc { font-size: 15px; color: rgba(255,255,255,0.5); line-height: 1.75; margin-top: 20px; max-width: 300px; }
+    .fig-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: rgba(255,255,255,0.3); letter-spacing: 0.12em; margin-top: 32px; display: flex; align-items: center; gap: 8px; }
+    .fig-label::before { content: ''; display: block; width: 16px; height: 1px; background: rgba(255,255,255,0.2); }
+          .how-rows { display: flex; flex-direction: column; }
+    .how-row { display: grid; grid-template-columns: 48px 1fr 64px; gap: 20px; align-items: center; padding: 28px 0; border-bottom: 1px solid rgba(255,255,255,0.08); position: relative; cursor: default; opacity: 0; transform: translateX(-24px); transition: opacity 480ms ease-out, transform 480ms ease-out, background 200ms; }
+    .how-row:first-child { border-top: 1px solid rgba(255,255,255,0.08); }
+    .how-row.in { opacity: 1; transform: translateX(0); }
+    .how-row::before { content: ''; position: absolute; left: -48px; top: 0; bottom: 0; width: 2px; background: var(--teal); transform: scaleY(0); transform-origin: bottom; transition: transform 230ms ease-out; }
+          .how-row:hover::before { transform: scaleY(1); }
+    .how-row:hover { background: rgba(255,255,255,0.03); border-radius: 8px; }
+    .how-icon { width: 40px; height: 40px; flex-shrink: 0; opacity: 0.5; transition: opacity 250ms; }
+    .how-row:hover .how-icon { opacity: 1; }
+    .how-text h3 { font-size: 16px; font-weight: 600; letter-spacing: -0.01em; color: #fff; margin-bottom: 6px; }
+        .how-text p { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.65; }
+    .how-num { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: rgba(255,255,255,0.25); text-align: right; justify-self: end; transition: color 200ms; opacity: 0.5; }
+    .how-row:hover .how-num { color: var(--teal); opacity: 1; }
+
+    .caps-sec { display: grid; grid-template-columns: repeat(3,1fr); }
+    .cap-block { padding: 80px 48px; display: flex; flex-direction: column; justify-content: space-between; min-height: 480px; transform-origin: bottom; transform: scaleY(0); transition: transform 500ms cubic-bezier(0.16,1,0.3,1); }
+    .cap-block.in { transform: scaleY(1); }
+    .cap-block:nth-child(2) { transition-delay: 100ms; }
+    .cap-block:nth-child(3) { transition-delay: 200ms; }
+    .cap-block-pink  { background: var(--pink); color: #fff; }
+        .cap-block-gold  { background: var(--gold); color: var(--dark); }
+    .cap-block-teal  { background: var(--teal); color: var(--dark); }
+    .cap-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0.6; margin-bottom: 24px; }
+    .cap-title { font-size: clamp(24px, 2.5vw, 36px); font-weight: 900; letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 16px; }
+    .cap-tagline { font-size: 14px; line-height: 1.6; opacity: 0.8; margin-bottom: 40px; }
+    .cap-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .cap-list li { font-size: 13px; padding-left: 14px; position: relative; line-height: 1.5; opacity: 0.85; }
+    .cap-list li::before { content: ''; position: absolute; left: 0; top: 8px; width: 5px; height: 1px; background: currentColor; }
+
+          .proof-sec { background: var(--dark); padding: 140px 0; position: relative; overflow: hidden; }
+    .proof-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.06); border-radius: 14px; overflow: hidden; margin-top: 56px; }
+    .proof-card { background: rgba(255,255,255,0.02); padding: 40px 36px; display: flex; flex-direction: column; position: relative; overflow: hidden; opacity: 0; transform: translateY(20px); transition: background 200ms ease-out, opacity 480ms ease-out, transform 480ms ease-out; }
+    .proof-card.in { opacity: 1; transform: translateY(0); }
+    .proof-card:hover { background: rgba(255,255,255,0.05); }
+    .proof-card:nth-child(1) { border-top: 4px solid var(--pink); }
+    .proof-card:nth-child(2) { border-top: 4px solid var(--gold); }
+    .proof-card:nth-child(3) { border-top: 4px solid var(--teal); }
+    .proof-card:nth-child(4) { border-top: 4px solid var(--pink); }
+    .proof-line { position: absolute; bottom: 0; left: 0; right: 0; height: 2px; transform: scaleX(0); transform-origin: left; transition: transform 280ms ease-out; }
+    .proof-card:nth-child(1) .proof-line { background: var(--teal); }
+    .proof-card:nth-child(2) .proof-line { background: var(--gold); }
+    .proof-card:nth-child(3) .proof-line { background: var(--pink); }
+    .proof-card:nth-child(4) .proof-line { background: var(--blue); }
+    .proof-card:hover .proof-line { transform: scaleX(1); }
+    .proof-tag { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: rgba(255,255,255,0.35); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 18px; }
+    .proof-title { font-size: 23px; font-weight: 800; letter-spacing: -0.025em; color: #fff; margin-bottom: 10px; }
+        .proof-hook { font-size: 13px; color: rgba(255,255,255,0.45); font-style: italic; margin-bottom: 14px; line-height: 1.5; }
+    .proof-body { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.75; margin-bottom: 28px; flex: 1; }
+    .proof-cta { font-size: 12px; font-weight: 600; color: var(--teal); display: flex; align-items: center; gap: 6px; }
+    .proof-cta::before { content: '→'; }
+
+    .cta-sec { background: var(--teal); padding: 160px 0; text-align: center; position: relative; overflow: hidden; }
+    .cta-ghost { position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); font-size: clamp(180px,28vw,400px); font-weight: 900; letter-spacing: -0.06em; color: transparent; -webkit-text-stroke: 1px rgba(26,37,48,0.1); pointer-events: none; user-select: none; z-index: 0; }
+    .cta-body { position: relative; z-index: 1; }
+    .cta-eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--dark); font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 20px; display: inline-block; background: rgba(26,37,48,0.12); padding: 6px 14px; border-radius: 20px; border: 1px solid rgba(26,37,48,0.2); }
+    .cta-hed { font-size: clamp(48px,7vw,100px); font-weight: 900; letter-spacing: -0.045em; line-height: 0.97; color: var(--dark); margin-bottom: 16px; }
+    .cta-how-word { display: inline-block; }
+    .cta-how-word.flash { animation: howFlash 1200ms ease-out forwards; }
+    @keyframes howFlash { 0% { color: var(--dark); } 33% { color: var(--pink); } 66% { color: var(--gold); } 100% { color: var(--dark); } }
+    .cta-sub { font-size: 16px; color: rgba(26,37,48,0.7); margin-bottom: 48px; line-height: 1.6; }
+    .cta-btns { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+
+    footer { background: var(--dark); padding: 48px 0 28px; border-top: 1px solid rgba(255,255,255,0.06); }
+    .footer-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px; }
+    .footer-logo { height: 24px; width: auto; opacity: 1; }
+    .footer-nav { display: flex; gap: 24px; }
+    .footer-nav a { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: rgba(255,255,255,0.45); letter-spacing: 0.08em; text-transform: uppercase; transition: color 160ms; }
+    .footer-nav a:hover { color: var(--teal); }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: flex-start; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.06); flex-wrap: wrap; gap: 16px; }
+    .footer-copy { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: rgba(255,255,255,0.5); letter-spacing: 0.05em; line-height: 1.7; }
+    .footer-legal { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: rgba(255,255,255,0.3); letter-spacing: 0.04em; line-height: 1.75; text-align: right; }
+    .footer-legal a { color: rgba(255,255,255,0.4); text-decoration: underline; text-underline-offset: 3px; }
+    .footer-legal a:hover { color: var(--teal); }
+
+    .r { opacity: 0; transform: translateY(16px); transition: opacity 520ms ease-out, transform 520ms ease-out; }
+    .r.on { opacity: 1; transform: translateY(0); }
+    .d1 { transition-delay: 60ms; } .d2 { transition-delay: 130ms; }
+    .d3 { transition-delay: 200ms; } .d4 { transition-delay: 270ms; } .d5 { transition-delay: 340ms; }
+
+    #cursor-dot { position: fixed; top: 0; left: 0; width: 10px; height: 10px; border-radius: 50%; background: var(--pink); pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); transition: width 200ms, height 200ms, opacity 200ms, background 400ms; }
+    #cursor-dot.big { width: 20px; height: 20px; opacity: 0.4; }
+    @media (pointer: coarse) { #cursor-dot { display: none; } }
+
+    @keyframes up { to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadein { to { opacity: 1; } }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hw-letter, .hero-rest, .how-row, .proof-card, .cap-block, .eyebrow, .scroll-caret, .r { transition: none !important; animation: none !important; opacity: 1 !important; transform: none !important; }
+      #cursor-dot, #scroll-line-track, #scroll-bead, #scroll-line-track-right { display: none !important; }
+      .live-dot { animation: none !important; }
+}
+
+    @media (max-width: 860px) {
+      .wrap { padding: 0 24px; }
+      nav { padding: 14px 24px; }
+      .nav-links { display: none; }
+      .ghost-how { display: none; }
+      .hows-layout { grid-template-columns: 1fr; gap: 48px; }
+      .hows-sticky { position: static; }
+      .hows-wm { display: none; }
+      .caps-sec { grid-template-columns: 1fr; }
+      .proof-grid { grid-template-columns: 1fr; }
+      .specs-layout { grid-template-columns: 1fr; gap: 48px; }
+      .how-row { grid-template-columns: 40px 1fr; }
+      .how-num { display: none; }
+      #scroll-line-track, #scroll-bead, #scroll-line-track-right { display: none; }
+              .footer-nav { display: none; }
+      .footer-legal { text-align: left; }
+        }
+  </style>
+        </head>
+        <body>
+
+          <nav>
+            <img class="nav-logo" src="assets/how-studio-logo-full-wh.png" alt="HOWstud.io" />
+            <div class="nav-links">
+              <a class="nav-link" href="#hows">Method<sup>05</sup></a>
+              <a class="nav-link" href="#services">Services<sup>03</sup></a>
+              <a class="nav-link" href="#work">Work<sup>04</sup></a>
+            </div>
+            <a class="nav-cta" href="contact.html">Let's talk</a>
+          </nav>
+
+          <section class="hero" id="hero">
+            <div class="hero-accent-bar"></div>
+            <div class="ghost-how" id="ghostHow" aria-hidden="true">HOW</div>
+            <div class="wrap">
+              <div class="hero-body">
+                <p class="eyebrow">Digital Studio — Jersey City, NJ</p>
+                <h1 class="hero-hed">
+                  <span class="hw-letter letter-h" id="hwH">H</span><span class="hw-dot" id="hwD1">·</span><span class="hw-letter letter-o" id="hwO">O</span><span class="hw-dot" id="hwD2">·</span><span class="hw-letter letter-w" id="hwW">W</span>
+                </h1>
+                <div class="hero-rest" id="heroRest">
+                  <p class="hero-sub">HOWstud.io builds apps, brands, and systems by asking five questions that actually matter. We don't chase trends. <em>We ship products that solve problems.</em></p>
+                  <div class="hero-btns">
+                    <a class="btn btn-primary" href="contact.html">Let's talk about your project</a>
+                    <a class="btn btn-secondary" href="#hows">The 5 HOWs</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="scroll-caret"><div class="caret-line"></div><span>scroll</span></div>
+          </section>
+
+          <section class="specs-sec dot-grid-light" id="specs">
+            <div class="wrap">
+              <div class="sec-label">
+                <span class="sec-label-n">00</span>
+                <div class="sec-label-rule"></div>
+                <span class="sec-label-t">Studio Specs</span>
+              </div>
+              <h2 class="sec-hed on-dark r">The studio<br>in <span class="accent">numbers.</span></h2>
+      <div class="specs-layout">
+        <div class="spec-box" id="specBox">
+          <div class="spec-row"><span class="spec-key">Founded</span><span class="spec-val">2022</span></div>
+          <div class="spec-row"><span class="spec-key">Location</span><span class="spec-val">Jersey City, NJ</span></div>
+                  <div class="spec-row"><span class="spec-key">Products Shipped</span><span class="spec-val counter-target" id="counterEl" data-target="6">0</span></div>
+                  <div class="spec-row"><span class="spec-key">Build Cycle</span><span class="spec-val">4 weeks</span></div>
+                  <div class="spec-row"><span class="spec-key">Stack</span><span class="spec-val">Next.js · Supabase · AI</span></div>
+          <div class="spec-row"><span class="spec-key">Status</span><span class="spec-val"><span class="status-badge live"><span class="live-dot"></span> Taking projects</span></span></div>
+        </div>
+                <div class="founder-card r">
+                  <div class="founder-eyebrow">Meet the Founder</div>
+          <p class="founder-quote">"I've shipped <span class="hl">six products</span> in three years — not because I had a big team, but because I stopped waiting for perfect and started asking better questions."</p>
+                  <p class="founder-bio">Before HOWstud.io, I spent years inside agencies and enterprises watching good ideas die in committee. Too many opinions, too little output. So I built a studio that runs the opposite way — small on purpose, ruthless about process, and obsessed with actually shipping.<br><br>The five HOWs aren't a tagline. They're the filter that separates the builds that matter from the ones that sit in a Figma file forever.</p>
+          <div class="founder-sig">
+            <div class="founder-avatar">BW</div>
+            <div><div class="founder-name">Brad Wood</div><div class="founder-title">Founder · HOWstud.io</div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="hows-sec" id="hows">
+            <div class="hows-wm" aria-hidden="true">5</div>
+            <div class="wrap">
+              <div class="hows-layout">
+                <div class="hows-sticky r">
+                  <div class="sec-label light">
+                    <span class="sec-label-n">01</span>
+                    <div class="sec-label-rule"></div>
+                    <span class="sec-label-t">Methodology</span>
+                  </div>
+                  <h2 class="sec-hed on-light">The five<br><span class="accent">HOWs</span></h2>
+                  <p class="hows-desc">Before a line of code. Before a brand color. Five questions we ask. Every single time.</p>
+          <p class="fig-label">Fig. 1 — Build methodology</p>
+        </div>
+        <div class="how-rows" id="howRows">
+          <div class="how-row">
+            <svg class="how-icon" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="13" r="5" stroke="#2BBFBF" stroke-width="1.5"/><path d="M8 34c0-6.627 5.373-12 12-12s12 5.373 12 12" stroke="#2BBFBF" stroke-width="1.5" stroke-linecap="round"/></svg>
+                    <div class="how-text"><h3>How does this help real people?</h3><p>If we can't answer this in one sentence, we're not ready to build. Every decision traces back to real human benefit.</p></div>
+                    <span class="how-num">01</span>
+                  </div>
+                  <div class="how-row">
+                    <svg class="how-icon" viewBox="0 0 40 40" fill="none"><path d="M20 6c0 0 8 4 8 14v4l-8 10-8-10v-4C12 10 20 6 20 6z" stroke="#2BBFBF" stroke-width="1.5" stroke-linejoin="round"/><circle cx="20" cy="18" r="3" stroke="#2BBFBF" stroke-width="1.5"/><path d="M14 28l-4 6M26 28l4 6" stroke="#2BBFBF" stroke-width="1.5" stroke-linecap="round"/></svg>
+                    <div class="how-text"><h3>How do we ship it faster?</h3><p>Speed isn't reckless — it's ruthless prioritization. Cut scope, keep impact. Launch in weeks, not months.</p></div>
+                    <span class="how-num">02</span>
+                  </div>
+                  <div class="how-row">
+                    <svg class="how-icon" viewBox="0 0 40 40" fill="none"><path d="M10 20a10 10 0 0 1 10-10" stroke="#2BBFBF" stroke-width="1.5" stroke-linecap="round"/><path d="M30 20a10 10 0 0 1-10 10" stroke="#2BBFBF" stroke-width="1.5" stroke-linecap="round"/><path d="M17 7l3 3-3 3" stroke="#2BBFBF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M23 33l-3-3 3-3" stroke="#2BBFBF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <div class="how-text"><h3>How do we make it better than last time?</h3><p>Every project teaches us something. We document what worked, fix what didn't, and compound our knowledge.</p></div>
+                    <span class="how-num">03</span>
+                  </div>
+                  <div class="how-row">
+                    <svg class="how-icon" viewBox="0 0 40 40" fill="none"><rect x="8" y="26" width="24" height="6" rx="1" stroke="#2BBFBF" stroke-width="1.5"/><rect x="11" y="18" width="18" height="6" rx="1" stroke="#2BBFBF" stroke-width="1.5"/><rect x="14" y="10" width="12" height="6" rx="1" stroke="#2BBFBF" stroke-width="1.5"/></svg>
+                    <div class="how-text"><h3>How do we build it to scale?</h3><p>Not "enterprise-ready" — just smart architecture that doesn't break when you grow. Simple systems that handle complexity.</p></div>
+                    <span class="how-num">04</span>
+                  </div>
+                  <div class="how-row">
+                    <svg class="how-icon" viewBox="0 0 40 40" fill="none"><path d="M8 32V20M16 32V14M24 32V22M32 32V8" stroke="#2BBFBF" stroke-width="1.5" stroke-linecap="round"/><path d="M8 20l8-6 8 8 8-14" stroke="#2BBFBF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <div class="how-text"><h3>How do we know it's working?</h3><p>Metrics that matter. Not vanity analytics — actual proof people are getting value. Measure impact, not activity.</p></div>
+                    <span class="how-num">05</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="caps-sec" id="services">
+            <div class="cap-block cap-block-pink">
+              <div><div class="cap-label">01 / Services</div><h3 class="cap-title">Launch Sprints</h3><p class="cap-tagline">Scope-lock in week 1. Ship in week 4.</p></div>
+              <ul class="cap-list"><li>Brand identity &amp; messaging</li><li>Landing pages that convert</li><li>MVP with core flows working</li><li>Analytics that tell you what matters</li></ul>
+    </div>
+    <div class="cap-block cap-block-gold">
+      <div><div class="cap-label">02 / Services</div><h3 class="cap-title">AI Systems</h3><p class="cap-tagline">Automations that actually remove work.</p></div>
+              <ul class="cap-list"><li>Data pipelines &amp; automations</li><li>Smart scrapers &amp; monitors</li><li>LLM integration that doesn't hallucinate</li><li>Workflows that run while you sleep</li></ul>
+            </div>
+            <div class="cap-block cap-block-teal">
+              <div><div class="cap-label">03 / Services</div><h3 class="cap-title">Creative Ops</h3><p class="cap-tagline">Systems for teams that ship often.</p></div>
+      <ul class="cap-list"><li>Brand kits &amp; content templates</li><li>Documentation that doesn't rot</li><li>Workflows you can actually repeat</li><li>Asset libraries that scale</li></ul>
+            </div>
+          </section>
+
+          <section class="proof-sec" id="work">
+            <div class="wrap">
+              <div class="r">
+                <div class="sec-label"><span class="sec-label-n">03</span><div class="sec-label-rule"></div><span class="sec-label-t">Proof</span></div>
+                <h2 class="sec-hed on-dark">HOW we <span class="accent">build</span></h2>
+              </div>
+              <div class="proof-grid">
+                <div class="proof-card"><div class="proof-tag">Creative Ops / Tools</div><h3 class="proof-title">Brand Packs</h3><p class="proof-hook">Teams waste time rebuilding what already works.</p><p class="proof-body">We build brand kits, copy blocks, and launch systems that move fast without falling apart. Pre-built frameworks that flex — ready for real teams, real timelines, real launches.</p><div class="proof-cta">Start with structure, not struggle.</div><div class="proof-line"></div></div>
+                <div class="proof-card"><div class="proof-tag">SaaS / Automations</div><h3 class="proof-title">Custom Tools</h3><p class="proof-hook">Not every idea needs to start from scratch.</p><p class="proof-body">Your concepts, shipped as done-for-you systems — automated, tested, and ready to run. Custom, reusable tools that handle the hard parts so you can scale sooner.</p><div class="proof-cta">Built once. Used often.</div><div class="proof-line"></div></div>
+                <div class="proof-card"><div class="proof-tag">eCommerce / Branding</div><h3 class="proof-title">Original Storefronts</h3><p class="proof-hook">Good products don't sell themselves.</p><p class="proof-body">Your products, stocked and ready to sell — custom design, automation, and copy that converts. We build branded storefronts that look sharp and work smarter.</p><div class="proof-cta">Set it up once, let it sell itself.</div><div class="proof-line"></div></div>
+                <div class="proof-card"><div class="proof-tag">Product / Prototyping</div><h3 class="proof-title">Rapid MVP Builds</h3><p class="proof-hook">Most ideas die waiting for perfect.</p><p class="proof-body">Ship now, polish later — from sketch to prototype, fast and focused. We design, structure, and launch lean so you can test, learn, and evolve in weeks.</p><div class="proof-cta">Speed over polish. Progress over perfect.</div><div class="proof-line"></div></div>
+      </div>
+    </div>
+  </section>
+
+          <section class="cta-sec" id="cta">
+            <div class="cta-ghost" aria-hidden="true">HOW</div>
+            <div class="wrap cta-body r">
+              <p class="cta-eyebrow">Let's work together</p>
+              <h2 class="cta-hed">Map out your<br><span class="cta-how-word" id="ctaHow">HOW.</span></h2>
+      <p class="cta-sub">Got an idea? A half-built project? A problem you keep hitting?</p>
+              <div class="cta-btns">
+                <a class="btn btn-cta-primary" href="contact.html">Email us</a>
+                <a class="btn btn-cta-secondary" href="contact.html">Book a consult</a>
+              </div>
+            </div>
+          </section>
+
+          <footer>
+            <div class="wrap">
+              <div class="footer-row">
+                <img class="footer-logo" src="assets/how-studio-logo-full-wh.png" alt="HOWstud.io" />
+                <nav class="footer-nav">
+                  <a href="#hows">Methodology</a><a href="#services">Services</a><a href="#work">Work</a><a href="contact.html">Contact</a>
+                </nav>
+              </div>
+              <div class="footer-bottom">
+                <div class="footer-copy">&copy; 2026 HOWstud.io, LLC. All rights reserved.<br>HOWstud.io is a registered trade name of HOW Studio LLC, Jersey City, NJ 07302.</div>
+                <div class="footer-legal">
+                  <a href="privacy.html">Privacy Policy</a> &nbsp;&middot;&nbsp; <a href="terms.html">Terms of Service</a> &nbsp;&middot;&nbsp; <a href="contact.html">Contact</a><br>
+          HOWstud.io does not sell or share your personal data.<br>
+          All work and content &copy; HOWstud.io unless otherwise noted.
+                </div>
+              </div>
+            </div>
+          </footer>
+
+          <script>
+          (function() {
+            const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const track = document.createElement('div'); track.id = 'scroll-line-track';
+    const fill = document.createElement('div'); fill.id = 'scroll-line-fill';
+    track.appendChild(fill); document.body.appendChild(track);
+    const trackRight = document.createElement('div'); trackRight.id = 'scroll-line-track-right';
+    const fillRight = document.createElement('div'); fillRight.id = 'scroll-line-fill-right';
+    trackRight.appendChild(fillRight); document.body.appendChild(trackRight);
+    const bead = document.createElement('div'); bead.id = 'scroll-bead';
+    document.body.appendChild(bead);
+    const ctaSection = document.getElementById('cta');
+    function getLineColor(p, inCta) {
+            if (inCta) return 'rgba(26,37,48,0.7)';
+      if (p < 0.33) return '#E91E8C';
+      if (p < 0.66) return '#F5B800';
+      return '#2BBFBF';
+    }
+    function isInViewport(el) {
+            if (!el) return false;
+      const r = el.getBoundingClientRect();
+      return r.top <= window.innerHeight * 0.5 && r.bottom >= 0;
+    }
+    function isPassedMidpoint(el) {
+            if (!el) return false;
+      return el.getBoundingClientRect().top <= window.innerHeight * 0.4;
+    }
+    function updateScrollLine() {
+            const scrollY = window.scrollY;
+      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+      const p = maxScroll > 0 ? Math.min(scrollY / maxScroll, 1) : 0;
+      const inCta = isInViewport(ctaSection);
+      const pastHows = isPassedMidpoint(document.getElementById('services'));
+      const color = getLineColor(p, inCta);
+      const shadow = '0 0 8px 2px ' + color;
+      fill.style.height = (p * 100) + '%'; fill.style.background = color; fill.style.boxShadow = shadow;
+      fillRight.style.height = (p * 100) + '%'; fillRight.style.background = color; fillRight.style.boxShadow = shadow;
+      bead.style.background = color;
+      bead.style.top = (p * (window.innerHeight - 10)) + 'px';
+      if (pastHows) {
+        track.classList.add('hide-left'); trackRight.classList.add('show-right');
+        bead.style.left = 'auto'; bead.style.right = '14px';
+      } else {
+        track.classList.remove('hide-left'); trackRight.classList.remove('show-right');
+        bead.style.left = '14px'; bead.style.right = 'auto';
+      }
+    }
+    window.addEventListener('scroll', updateScrollLine, { passive: true });
+    updateScrollLine();
+    const dot = document.createElement('div'); dot.id = 'cursor-dot';
+    document.body.appendChild(dot);
+    let cx = -100, cy = -100, tx = -100, ty = -100;
+    document.addEventListener('mousemove', e => { tx = e.clientX; ty = e.clientY; });
+    const ia = 'a, button, .proof-card, .how-row, .cap-block';
+    document.addEventListener('mouseover', e => { if (e.target.closest(ia)) dot.classList.add('big'); });
+    document.addEventListener('mouseout',  e => { if (e.target.closest(ia)) dot.classList.remove('big'); });
+    function animDot() {
+            cx += (tx - cx) * 0.12; cy += (ty - cy) * 0.12;
+      dot.style.left = cx + 'px'; dot.style.top = cy + 'px';
+      const p = Math.min(window.scrollY / (document.documentElement.scrollHeight - window.innerHeight || 1), 1);
+      dot.style.background = getLineColor(p, isInViewport(ctaSection));
+      requestAnimationFrame(animDot);
+    }
+    if (!reduced) animDot();
+    if (!reduced) {
+      setTimeout(() => {
+                setTimeout(() => document.getElementById('hwH').classList.add('in'), 100);
+        setTimeout(() => document.getElementById('hwO').classList.add('in'), 260);
+        setTimeout(() => document.getElementById('hwW').classList.add('in'), 420);
+        setTimeout(() => { document.getElementById('hwD1').classList.add('in'); document.getElementById('hwD2').classList.add('in'); }, 560);
+        setTimeout(() => document.getElementById('heroRest').classList.add('in'), 760);
+}, 200);
+}
+    const ghostEl = document.getElementById('ghostHow');
+    let scrollYg = 0;
+    window.addEventListener('scroll', () => { scrollYg = window.scrollY; }, { passive: true });
+    function animGhost() {
+      ghostEl.style.transform = 'translateY(calc(-50% + ' + (scrollYg * 0.28) + 'px))';
+      requestAnimationFrame(animGhost);
+}
+    animGhost();
+    function onEnter(el, cb, thr) {
+      if (!el) return;
+      new IntersectionObserver((entries, obs) => {
+        entries.forEach(e => { if (e.isIntersecting) { cb(); obs.unobserve(el); } });
+}, { threshold: thr || 0.15 }).observe(el);
+}
+    const revObs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); revObs.unobserve(e.target); } });
+}, { threshold: 0.1, rootMargin: '0px 0px -28px 0px' });
+    document.querySelectorAll('.r').forEach(el => revObs.observe(el));
+    onEnter(document.getElementById('specBox'), () => document.getElementById('specBox').classList.add('drawn'), 0.3);
+    onEnter(document.getElementById('counterEl'), () => {
+      if (reduced) { document.getElementById('counterEl').textContent = '6 and counting'; return; }
+      const start = performance.now();
+      function tick(now) {
+        const t = Math.min((now - start) / 800, 1);
+        document.getElementById('counterEl').textContent = t < 1 ? Math.floor(t * 6) : '6 and counting';
+        if (t < 1) requestAnimationFrame(tick);
+}
+      requestAnimationFrame(tick);
+}, 0.3);
+    onEnter(document.getElementById('howRows'), () => {
+      document.querySelectorAll('.how-row').forEach((r, i) => setTimeout(() => r.classList.add('in'), i * 80));
+}, 0.1);
+    onEnter(document.querySelector('.proof-grid'), () => {
+      document.querySelectorAll('.proof-card').forEach((c, i) => setTimeout(() => c.classList.add('in'), i * 60));
+}, 0.05);
+    onEnter(document.querySelector('.caps-sec'), () => {
+      document.querySelectorAll('.cap-block').forEach((b, i) => setTimeout(() => b.classList.add('in'), i * 100));
+}, 0.1);
+    let ctaFlashed = false;
+    onEnter(ctaSection, () => {
+      if (reduced || ctaFlashed) return;
+      ctaFlashed = true;
+      document.getElementById('ctaHow').classList.add('flash');
+}, 0.3);
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        document.querySelector(a.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+});
+});
+})();
+  </script>
+
+</body>
+</html>
