@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Privacy Policy — HOWstud.io</title>
+  <link rel="icon" href="assets/how-studio-seal.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --cream: #F5F0E8; --dark: #1A2530; --teal: #2BBFBF;
+      --gold: #F5B800; --pink: #E91E8C; --blue: #5BC8E8;
+      --navy: #3D4F63; --slate: #2A3A4A;
+      --border-light: rgba(26,37,48,0.1);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, sans-serif; background: var(--cream); color: var(--dark); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+    a { text-decoration: none; color: inherit; }
+    nav { position: sticky; top: 0; background: #2A3A4A; border-bottom: 1px solid rgba(255,255,255,0.08); z-index: 200; padding: 16px 48px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { height: 26px; width: auto; display: block; }
+    .nav-links { display: flex; align-items: center; gap: 28px; }
+    .nav-link { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 500; color: rgba(255,255,255,0.6); letter-spacing: 0.08em; text-transform: uppercase; transition: color 180ms; }
+    .nav-link:hover { color: #fff; }
+    .nav-cta { padding: 9px 20px; border-radius: 9999px; background: transparent; border: 1px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.85); font-size: 12px; font-weight: 600; letter-spacing: 0.03em; transition: all 160ms; }
+    .nav-cta:hover { border-color: var(--teal); color: var(--teal); }
+    .wrap { max-width: 1120px; margin: 0 auto; padding: 0 48px; }
+    .page-body { padding: 80px 0 120px; }
+    .back-link { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: rgba(26,37,48,0.45); letter-spacing: 0.08em; text-transform: uppercase; display: inline-flex; align-items: center; gap: 8px; margin-bottom: 48px; transition: color 160ms; }
+    .back-link:hover { color: var(--dark); }
+    .prose { max-width: 720px; }
+    .prose h1 { font-size: clamp(38px, 4.5vw 60px); font-weight: 900; letter-spacing: -0.04em; line-height: 1.0; color: var(--dark); margin-bottom: 24px; }
+    .prose .last-updated { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: rgba(26,37,48,0.4); letter-spacing: 0.05em; margin-bottom: 48px; }
+    .prose h2 { font-size: 20px; font-weight: 700; color: var(--dark); margin: 40px 0 12px; }
+    .prose p { font-size: 16px; line-height: 1.75; color: rgba(26,37,48,0.7); margin-bottom: 16px; }
+    .prose ul { margin-bottom: 16px; padding-left: 24px; }
+    .prose li { font-size: 16px; line-height: 1.75; color: rgba(26,37,48,0.7); margin-bottom: 8px; }
+    .prose a { color: var(--teal); text-decoration: underline; text-underline-offset: 3px; }
+    footer { background: var(--dark); padding: 48px 0 28px; border-top: 1px solid rgba(255,255,255,0.06); }
+    .footer-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px; }
+    .footer-logo { height: 24px; width: auto; opacity: 1; }
+    .footer-nav { display: flex; gap: 24px; }
+    .footer-nav a { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: rgba(255,255,255,0.45); letter-spacing: 0.08em; text-transform: uppercase; transition: color 160ms; }
+    .footer-nav a:hover { color: var(--teal); }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: flex-start; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.06); flex-wrap: wrap; gap: 16px; }
+    .footer-copy { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: rgba(255,255,255,0.5); letter-spacing: 0.05em; line-height: 1.7; }
+    .footer-legal { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: rgba(255,255,255,0.3); letter-spacing: 0.04em; line-height: 1.75; text-align: right; }
+    .footer-legal a { color: rgba(255,255,255,0.4); text-decoration: underline; text-underline-offset: 3px; }
+    .footer-legal a:hover { color: var(--teal); }
+    @media (max-width: 860px) { .wrap { padding: 0 24px; } nav { padding: 14px 24px; } .nav-links { display: none; } .footer-nav { display: none; } }
+  </style>
+</head>
+<body>
+  <nav>
+    <img class="nav-logo" src="assets/how-studio-logo-full-wh.png" alt="HOWstud.io" />
+    <div class="nav-links">
+      <a class="nav-link" href="index.html#hows">Method<sup>05</sup></a>
+      <a class="nav-link" href="index.html#services">Services<sup>03</sup></a>
+      <a class="nav-link" href="projects.html">Work<sup>04</sup></a>
+    </div>
+    <a class="nav-cta" href="contact.html">Let's talk</a>
+  </nav>
+  <div class="wrap page-body">
+    <a class="back-link" href="index.html">← Back</a>
+    <div class="prose">
+      <h1 class="page-hed">Privacy Policy</h1>
+      <p class="last-updated">LAST UPDATED: APRIL 2026</p>
+      <h2>Overview</h2>
+      <p>HOWstud.io (&quot;HOW S-udio LLC&quot;) operates this website and associated SaaS products. This policy explains what data we collect, how we use it, and your rights.</p>
+      <h2>What We Collect</h2>
+      <ul>
+        <li>Contact information you submit via our forms (name, email, message)</li>
+        <li>Basic usage data from SaaS products you opt into7 (email, quiz results, organization data)</li>
+        <li>Anonymous browser telemetry (page views, device type, referrer) via first-party analytics</li>
+      </ul>
+      <h2>How We Use It</h2>
+      <ul>
+        <li>To respond to inquiries and deliver requested services</li>
+        <li>To operate and improve our products</li>
+        <li>To send relevant updates or marketing if you have opted in</li>
+      </ul>
+      <h2>Data Sharing</h2>
+      <p>We do not sell or share your personal data with third parties for marketing purposes. We may share data with trusted infrastructure providers (e.g., Vercel, Supabase, Stripe) only as necessary to operate our services.</p>
+      <h2>Cookies</h2>
+      <p>This site uses minimal first-party cookies for session management and analytics only. We do not use third-party advertising cookies.</p>
+      <h2>Your Rights</h2>
+      <p You may request access to, correction of, or deletion of your personal data at any time by contacting us at <a href="mailto:hello@howstud.io">hello@howstud.io</a>.</p>
+      <h2>Changes to This Policy</h2>
+      <p>We may update this policy periodically. When we do, we update the date at the top of this page. Continued use of our site or products after changes constitutes acceptance.</p>
+      <h2>Contact</h2>
+      <p>HOW studio LLC | hello@howstud.io | Jersey City, NJ</p>
+    </div>
+  </div>
+  <footer>
+    <div class="wrap">
+      <div class="footer-row">
+        <img class="footer-logo" src="assets/how-studio-logo-full-wh.png" alt="HOWstud.io" />
+        <nav class="footer-nav">
+          <a href="index.html#hows">Methodology</a><a href="index.html#services">Services</a><a href="projects.html">Work</a><a href="contact.html">Contact</a>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-copy">&copy; 2026 HOWstud.io, LLC. All rights reserved.<br>HOWstud.io is a registered trade name of HOW Studio LLC, Jersey City, NJ 07302.</div>
+        <div class="footer-legal">
+          <a href="privacy.html">Privacy Policy</a> &nbsp;&middot;&nbsp; <a href="terms.html">Terms of Service</a> &nbsp;&middot;&nbsp; <a href="contact.html">Contact</a><br>
+          HOWstud.io does not sell or share your personal data.<br>
+          All work and content &copy; HOWstud.io unless otherwise noted.
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
