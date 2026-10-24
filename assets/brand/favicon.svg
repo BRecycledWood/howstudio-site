@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="HOWstud.io">
+  <rect width="64" height="64" rx="12" fill="#202124"/>
+  <g transform="translate(0 0)">
+    <g transform="translate(7.29 53.57) scale(0.0628 -0.0628)">
+      <path fill="#F5F1E9" d="M75 0V687H254V423H533V687H712V0H533V277H254V0Z"/>
+    </g>
+    <circle cx="46" cy="41" r="4" fill="#F05A28"/>
+  </g>
+</svg>

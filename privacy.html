@@ -1,115 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Privacy Policy — HOWstud.io</title>
-  <link rel="icon" href="assets/how-studio-seal.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600" rel="stylesheet">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --cream: #F5F0E8; --dark: #1A2530; --teal: #2BBFBF;
-      --gold: #F5B800; --pink: #E91E8C; --blue: #5BC8E8;
-      --navy: #3D4F63; --slate: #2A3A4A;
-      --border-light: rgba(26,37,48,0.1);
-    }
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', system-ui, sans-serif; background: var(--cream); color: var(--dark); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
-    a { text-decoration: none; color: inherit; }
-    nav { position: sticky; top: 0; background: #2A3A4A; border-bottom: 1px solid rgba(255,255,255,0.08); z-index: 200; padding: 16px 48px; display: flex; align-items: center; justify-content: space-between; }
-    .nav-logo { height: 26px; width: auto; display: block; }
-    .nav-links { display: flex; align-items: center; gap: 28px; }
-    .nav-link { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 500; color: rgba(255,255,255,0.6); letter-spacing: 0.08em; text-transform: uppercase; transition: color 180ms; }
-    .nav-link:hover { color: #fff; }
-    .nav-cta { padding: 9px 20px; border-radius: 9999px; background: transparent; border: 1px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.85); font-size: 12px; font-weight: 600; letter-spacing: 0.03em; transition: all 160ms; }
-    .nav-cta:hover { border-color: var(--teal); color: var(--teal); }
-    .wrap { max-width: 1120px; margin: 0 auto; padding: 0 48px; }
-    .page-body { padding: 80px 0 120px; }
-    .back-link { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: rgba(26,37,48,0.45); letter-spacing: 0.08em; text-transform: uppercase; display: inline-flex; align-items: center; gap: 8px; margin-bottom: 48px; transition: color 160ms; }
-    .back-link:hover { color: var(--dark); }
-    .prose { max-width: 720px; }
-    .prose h1 { font-size: clamp(38px, 4.5vw 60px); font-weight: 900; letter-spacing: -0.04em; line-height: 1.0; color: var(--dark); margin-bottom: 24px; }
-    .prose .last-updated { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: rgba(26,37,48,0.4); letter-spacing: 0.05em; margin-bottom: 48px; }
-    .prose h2 { font-size: 20px; font-weight: 700; color: var(--dark); margin: 40px 0 12px; }
-    .prose p { font-size: 16px; line-height: 1.75; color: rgba(26,37,48,0.7); margin-bottom: 16px; }
-    .prose ul { margin-bottom: 16px; padding-left: 24px; }
-    .prose li { font-size: 16px; line-height: 1.75; color: rgba(26,37,48,0.7); margin-bottom: 8px; }
-    .prose a { color: var(--teal); text-decoration: underline; text-underline-offset: 3px; }
-    footer { background: var(--dark); padding: 48px 0 28px; border-top: 1px solid rgba(255,255,255,0.06); }
-    .footer-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px; }
-    .footer-logo { height: 24px; width: auto; opacity: 1; }
-    .footer-nav { display: flex; gap: 24px; }
-    .footer-nav a { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: rgba(255,255,255,0.45); letter-spacing: 0.08em; text-transform: uppercase; transition: color 160ms; }
-    .footer-nav a:hover { color: var(--teal); }
-    .footer-bottom { display: flex; justify-content: space-between; align-items: flex-start; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.06); flex-wrap: wrap; gap: 16px; }
-    .footer-copy { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: rgba(255,255,255,0.5); letter-spacing: 0.05em; line-height: 1.7; }
-    .footer-legal { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: rgba(255,255,255,0.3); letter-spacing: 0.04em; line-height: 1.75; text-align: right; }
-    .footer-legal a { color: rgba(255,255,255,0.4); text-decoration: underline; text-underline-offset: 3px; }
-    .footer-legal a:hover { color: var(--teal); }
-    @media (max-width: 860px) { .wrap { padding: 0 24px; } nav { padding: 14px 24px; } .nav-links { display: none; } .footer-nav { display: none; } }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy — HOWstud.io</title>
+<meta name="description" content="How HOWstud.io handles the information you share — what we collect, why, how long we keep it, and how to reach us.">
+<link rel="canonical" href="https://howstud.io/privacy.html">
+<meta name="theme-color" content="#f5f1e9">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="HOWstud.io">
+<meta property="og:url" content="https://howstud.io/privacy.html">
+<meta property="og:title" content="Privacy Policy — HOWstud.io">
+<meta property="og:description" content="What we collect, why we collect it, and how to get in touch.">
+<meta property="og:image" content="https://howstud.io/assets/img/og-image.png">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="index, follow">
+<link rel="icon" href="assets/brand/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/brand/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">
+<link rel="preload" href="assets/fonts/archivo-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/dm-sans-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/site.css">
+<script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
-  <nav>
-    <img class="nav-logo" src="assets/how-studio-logo-full-wh.png" alt="HOWstud.io" />
-    <div class="nav-links">
-      <a class="nav-link" href="index.html#hows">Method<sup>05</sup></a>
-      <a class="nav-link" href="index.html#services">Services<sup>03</sup></a>
-      <a class="nav-link" href="projects.html">Work<sup>04</sup></a>
-    </div>
-    <a class="nav-cta" href="contact.html">Let's talk</a>
-  </nav>
-  <div class="wrap page-body">
-    <a class="back-link" href="index.html">← Back</a>
-    <div class="prose">
-      <h1 class="page-hed">Privacy Policy</h1>
-      <p class="last-updated">LAST UPDATED: APRIL 2026</p>
-      <h2>Overview</h2>
-      <p>HOWstud.io (&quot;HOW S-udio LLC&quot;) operates this website and associated SaaS products. This policy explains what data we collect, how we use it, and your rights.</p>
-      <h2>What We Collect</h2>
-      <ul>
-        <li>Contact information you submit via our forms (name, email, message)</li>
-        <li>Basic usage data from SaaS products you opt into7 (email, quiz results, organization data)</li>
-        <li>Anonymous browser telemetry (page views, device type, referrer) via first-party analytics</li>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header" data-header>
+  <div class="header-inner">
+    <a class="brand" href="index.html" aria-label="HOWstud.io — home">
+      <img src="assets/brand/wordmark-ink.svg" alt="HOWstud.io" width="188" height="47">
+    </a>
+    <nav class="nav" id="site-nav" aria-label="Primary" data-nav>
+      <ul class="nav-list">
+        <li><a class="nav-link" href="index.html">Home</a></li>
+        <li><a class="nav-link" href="work.html">Work</a></li>
+        <li><a class="nav-link" href="capabilities.html">Capabilities</a></li>
+        <li><a class="nav-link" href="the-how.html">The HOW</a></li>
       </ul>
-      <h2>How We Use It</h2>
-      <ul>
-        <li>To respond to inquiries and deliver requested services</li>
-        <li>To operate and improve our products</li>
-        <li>To send relevant updates or marketing if you have opted in</li>
-      </ul>
-      <h2>Data Sharing</h2>
-      <p>We do not sell or share your personal data with third parties for marketing purposes. We may share data with trusted infrastructure providers (e.g., Vercel, Supabase, Stripe) only as necessary to operate our services.</p>
-      <h2>Cookies</h2>
-      <p>This site uses minimal first-party cookies for session management and analytics only. We do not use third-party advertising cookies.</p>
-      <h2>Your Rights</h2>
-      <p You may request access to, correction of, or deletion of your personal data at any time by contacting us at <a href="mailto:hello@howstud.io">hello@howstud.io</a>.</p>
-      <h2>Changes to This Policy</h2>
-      <p>We may update this policy periodically. When we do, we update the date at the top of this page. Continued use of our site or products after changes constitutes acceptance.</p>
-      <h2>Contact</h2>
-      <p>HOW studio LLC | hello@howstud.io | Jersey City, NJ</p>
+      <a class="btn btn--primary" href="start-a-project.html">Start a Project
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 11.5 11.5 4.5M5.75 4.5h5.75v5.75"/></svg>
+      </a>
+    </nav>
+    <div class="header-actions">
+      <a class="btn btn--primary btn--sm" href="start-a-project.html">Start a Project
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 11.5 11.5 4.5M5.75 4.5h5.75v5.75"/></svg>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span class="visually-hidden" data-nav-label>Open menu</span>
+      </button>
     </div>
   </div>
-  <footer>
-    <div class="wrap">
-      <div class="footer-row">
-        <img class="footer-logo" src="assets/how-studio-logo-full-wh.png" alt="HOWstud.io" />
-        <nav class="footer-nav">
-          <a href="index.html#hows">Methodology</a><a href="index.html#services">Services</a><a href="projects.html">Work</a><a href="contact.html">Contact</a>
+</header>
+
+<main id="main">
+  <div class="wrap">
+    <div class="prose-wrap">
+      <aside class="prose-aside">
+        <p class="mono">Legal</p>
+        <p>Plain-language policies for this website and our studio services.</p>
+        <nav class="prose-nav" aria-label="On this page">
+          <a href="#overview">Overview</a>
+          <a href="#collect">What we collect</a>
+          <a href="#use">How we use it</a>
+          <a href="#sharing">Sharing</a>
+          <a href="#cookies">Cookies</a>
+          <a href="#rights">Your choices</a>
+          <a href="#contact">Contact</a>
         </nav>
-      </div>
-      <div class="footer-bottom">
-        <div class="footer-copy">&copy; 2026 HOWstud.io, LLC. All rights reserved.<br>HOWstud.io is a registered trade name of HOW Studio LLC, Jersey City, NJ 07302.</div>
-        <div class="footer-legal">
-          <a href="privacy.html">Privacy Policy</a> &nbsp;&middot;&nbsp; <a href="terms.html">Terms of Service</a> &nbsp;&middot;&nbsp; <a href="contact.html">Contact</a><br>
-          HOWstud.io does not sell or share your personal data.<br>
-          All work and content &copy; HOWstud.io unless otherwise noted.
+      </aside>
+
+      <article class="prose">
+        <h1 class="h1">Privacy Policy</h1>
+        <p class="updated">Last updated · October 24, 2026</p>
+
+        <h2 id="overview">Overview</h2>
+        <p>HOWstud.io is operated by HOW Studio LLC, a studio based in Jersey City, New Jersey. This policy explains what information we collect through this website and our project inquiry process, how we use it, and the choices you have.</p>
+        <p>Short version: we collect what you send us, we use it to reply to you and do the work, and we don't sell it.</p>
+
+        <h2 id="collect">What we collect</h2>
+        <ul>
+          <li><strong>Information you give us.</strong> When you contact us, that typically includes your name, email address, and anything else you choose to include — company name, project description, budget range, or timeline.</li>
+          <li><strong>Project and client records.</strong> If we work together, we may keep correspondence, briefs, files, and project notes needed to deliver and support the work.</li>
+          <li><strong>Technical information.</strong> Our hosting provider may record standard server logs (IP address, browser type, requested pages, timestamps) for security and reliability. We do not use those logs to build profiles of visitors.</li>
+        </ul>
+        <p>Please don't send sensitive personal information — health details, government identifiers, financial account numbers — through the inquiry form. If a project needs that kind of data, we'll agree on a secure method first.</p>
+
+        <h2 id="use">How we use it</h2>
+        <ul>
+          <li>To read and respond to your inquiry.</li>
+          <li>To prepare proposals, estimates, and project plans you've asked for.</li>
+          <li>To deliver, maintain, and improve services we've been engaged to provide.</li>
+          <li>To meet legal, tax, and accounting obligations.</li>
+          <li>To keep the website secure and working correctly.</li>
+        </ul>
+        <p>We don't add you to a marketing list because you sent an inquiry, and we don't send promotional email without your permission.</p>
+
+        <h2 id="sharing">Sharing</h2>
+        <p>We don't sell or rent your information, and we don't share it with third parties for their own marketing.</p>
+        <p>We may share limited information with service providers who help us operate — for example web hosting, email, file storage, or payment processing — and only to the extent needed to provide those services. We may also disclose information where required by law, or to protect our rights and the safety of others.</p>
+        <p>If a project involves tools chosen by you (for example your CRM or a third-party platform), that provider's own privacy terms apply to data stored there.</p>
+
+        <h2 id="cookies">Cookies and analytics</h2>
+        <p>This website is built as a set of static pages. It does not set advertising cookies, does not run third-party tracking pixels, and does not embed social media trackers.</p>
+        <p>The site loads its fonts from this domain rather than a third-party font service, so simply visiting a page does not send your request to another company.</p>
+        <p>If we later add analytics or other measurement tools, we'll update this policy and, where required, ask for consent before those tools load.</p>
+
+        <h2 id="retention">How long we keep it</h2>
+        <p>Inquiries that don't become projects are kept for as long as they're useful for follow-up, and then deleted or archived. Project records are kept for as long as needed to support the work and to meet legal and accounting requirements.</p>
+        <p>You can ask us to delete your inquiry at any time using the contact details below.</p>
+
+        <h2 id="rights">Your choices</h2>
+        <p>Depending on where you live, you may have the right to ask what personal information we hold about you, to request a copy, to have it corrected or deleted, or to object to certain uses. We'll honour those requests as required by applicable law.</p>
+        <p>To make a request, email <a href="mailto:hello@howstud.io">hello@howstud.io</a> with enough detail for us to identify your records. We may need to verify your identity before acting.</p>
+
+        <h2 id="security">Security</h2>
+        <p>We use reasonable technical and organisational safeguards for the information we hold, including encrypted connections to this website and access controls on our own systems. No method of transmission or storage is completely secure, so we can't promise absolute security — but we take the responsibility seriously.</p>
+
+        <h2 id="children">Children</h2>
+        <p>Our services are intended for businesses and adults. This website is not directed at children, and we don't knowingly collect information from anyone under 13.</p>
+
+        <h2 id="changes">Changes to this policy</h2>
+        <p>If this policy changes, we'll update the date at the top of this page. Material changes affecting how we use information you've already shared will be communicated directly where we have a way to reach you.</p>
+
+        <h2 id="contact">Contact</h2>
+        <p>Questions about privacy, or a request about your information:</p>
+        <div class="contact-block">
+          HOW Studio LLC · HOWstud.io<br>
+          Jersey City, New Jersey, USA<br>
+          <a href="mailto:hello@howstud.io">hello@howstud.io</a>
         </div>
+        <p style="margin-top: 28px">See also our <a href="terms.html">Terms of Service</a>.</p>
+      </article>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="assets/brand/wordmark-cream.svg" alt="HOWstud.io" width="316" height="79">
+        <p class="tagline">Built for the work behind the work.</p>
+        <p class="sub">Creative thinking. Practical technology. Better ways of working.</p>
+      </div>
+      <div class="footer-col">
+        <h2>Explore</h2>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="work.html">Work</a></li>
+          <li><a href="capabilities.html">Capabilities</a></li>
+          <li><a href="the-how.html">The HOW</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Start</h2>
+        <ul>
+          <li><a href="start-a-project.html">Start a Project</a></li>
+          <li><a href="mailto:hello@howstud.io">hello@howstud.io</a></li>
+        </ul>
+        <a class="btn btn--light btn--sm footer-cta" href="start-a-project.html">Start a project</a>
+      </div>
+      <div class="footer-col">
+        <h2>Legal</h2>
+        <ul>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+        </ul>
       </div>
     </div>
-  </footer>
+    <div class="footer-bottom">
+      <p>© <span data-year>2026</span> HOWstud.io · HOW Studio LLC · Jersey City, NJ</p>
+      <div class="footer-legal">
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <span class="footer-mark"><span class="dot" aria-hidden="true"></span>Everything starts with HOW</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/site.js" defer></script>
 </body>
 </html>

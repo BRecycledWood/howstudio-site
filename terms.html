@@ -1,109 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Terms of Service — HOWstud.io</title>
-  <link rel="icon" href="assets/how-studio-seal.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600" rel="stylesheet">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --cream: #F5FE58; --dark: #1A2530; --teal: #2BBFBF;
-      --gold: #F5B800; --pink: #E91E8C; --blue: #5BC8E8;
-      --navy: #3D4F63; --slate: #2A3A4A;
-      --border-light: rgba(26,37,48,0.1);
-    }
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', system-ui, sans-serif; background: var(--cream); color: var(--dark); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
-    a { text-decoration: none; color: inherit; }
-    nav { position: sticky; top: 0; background: #2A3A4A; border-bottom: 1px solid rgba(255,255,255,0.08); z-index: 200; padding: 16px 48px; display: flex; align-items: center; justify-content: space-between; }
-    .nav-logo { height: 26px; width: auto; display: block; }
-    .nav-links { display: flex; align-items: center; gap: 28px; }
-    .nav-link { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 500; color: rgba(255,255,255,0.6); letter-spacing: 0.08em; text-transform: uppercase; transition: color 180ms; }
-    .nav-link:hover { color: #fff; }
-    .nav-cta { padding: 9px 20px; border-radius: 9999px; background: transparent; border: 1px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.85); font-size: 12px; font-weight: 600; letter-spacing: 0.03em; transition: all 160ms; }
-    .nav-cta:hover { border-color: var(--teal); color: var(--teal); }
-    .wrap { max-width: 1120px; margin: 0 auto; padding: 0 48px; }
-    .page-body { padding: 80px 0 120px; }
-    .back-link { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: rgba(26,37,48,0.45); letter-spacing: 0.08em; text-transform: uppercase; display: inline-flex; align-items: center; gap: 8px; margin-bottom: 48px; transition: color 160ms; }
-    .back-link:hover { color: var(--dark); }
-    .prose { max-width: 720px; }
-    .prose h1 { font-size: clamp(38px, 4.5vw 60px); font-weight: 900; letter-spacing: -0.04em; line-height: 1.0; color: var(--dark); margin-bottom: 24px; }
-    .prose .last-updated { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: rgba(26,37,48,0.4); letter-spacing: 0.05em; margin-bottom: 48px; }
-    .prose h2 { font-size: 20px; font-weight: 700; color: var(--dark); margin: 40px 0 12px; }
-    .prose p { font-size: 16px; line-height: 1.75; color: rgba(26,37,48,0.7); margin-bottom: 16px; }
-    .prose ul { margin-bottom: 16px; padding-left: 24px; }
-    .prose li { font-size: 16px; line-height: 1.75; color: rgba(26,37,48,0.7); margin-bottom: 8px; }
-    .prose a { color: var(--teal); text-decoration: underline; text-underline-offset: 3px; }
-    footer { background: var(--dark); padding: 48px 0 28px; border-top: 1px solid rgba(255,255,255,0.06); }
-    .footer-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px; }
-    .footer-logo { height: 24px; width: auto; opacity: 1; }
-    .footer-nav { display: flex; gap: 24px; }
-    .footer-nav a { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: rgba(255,255,255,0.45); letter-spacing: 0.08em; text-transform: uppercase; transition: color 160ms; }
-    .footer-nav a:hover { color: var(--teal); }
-    .footer-bottom { display: flex; justify-content: space-between; align-items: flex-start; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.06); flex-wrap: wrap; gap: 16px; }
-    .footer-copy { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: rgba(255,255,255,0.5); letter-spacing: 0.05em; line-height: 1.7; }
-    .footer-legal { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: rgba(255,255,255,0.3); letter-spacing: 0.04em; line-height: 1.75; text-align: right; }
-    .footer-legal a { color: rgba(255,255,255,0.4); text-decoration: underline; text-underline-offset: 3px; }
-    .footer-legal a:hover { color: var(--teal); }
-    @media (max-width: 860px) { .wrap { padding: 0 24px; } nav { padding: 14px 24px; } .nav-links { display: none; } .footer-nav { display: none; } }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Terms of Service — HOWstud.io</title>
+<meta name="description" content="The terms that apply when you use the HOWstud.io website or engage HOW Studio LLC for design, development, software, and digital growth services.">
+<link rel="canonical" href="https://howstud.io/terms.html">
+<meta name="theme-color" content="#f5f1e9">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="HOWstud.io">
+<meta property="og:url" content="https://howstud.io/terms.html">
+<meta property="og:title" content="Terms of Service — HOWstud.io">
+<meta property="og:description" content="Terms for using this website and working with HOW Studio LLC.">
+<meta property="og:image" content="https://howstud.io/assets/img/og-image.png">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="index, follow">
+<link rel="icon" href="assets/brand/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/brand/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">
+<link rel="preload" href="assets/fonts/archivo-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/dm-sans-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/site.css">
+<script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
-  <nav>
-    <img class="nav-logo" src="assets/how-studio-logo-full-wh.png" alt="HOWstud.io" />
-    <div class="nav-links">
-      <a class="nav-link" href="index.html#hows">Method<sup>05</sup></a>
-      <a class="nav-link" href="index.html#services">Services<sup>03</sup></a>
-      <a class="nav-link" href="projects.html">Work<sup>04</sup></a>
-    </div>
-    <a class="nav-cta" href="contact.html">Let's talk</a>
-  </nav>
-  <div class="wrap page-body">
-    <a class="back-link" href="index.html">← Back</a>
-    <div class="prose">
-      <h1 class="page-hed">Terms of Service</h1>
-      <p class="last-updated">LAST UPDATED8�APRIL 026</p>
-      <h2>Acceptance</h2>
-      <p>By accessing HOWstud.io or any associated product, you agree to be bound by these Terms of Service. If you do not agree, please do not use our services.</p>
-      <h2>Services</h2>
-      <p>HOWstud.io offers SaaS products and consulting services for AI readiness, lead generation, and digital business operations. We reserve the right to modify or discontinue any service at any time with reasonable notice.</p>
-      <h2>User Responsibilities</h2>
-      <ul>
-        <li>You must provide accurate information when using our forms or products.</li>
-        <li>You may not use our services for illegal, harassing, or abusive purposes.</li>
-        <li>You are responsible for maintaining the security of your account credentials.</li>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header" data-header>
+  <div class="header-inner">
+    <a class="brand" href="index.html" aria-label="HOWstud.io — home">
+      <img src="assets/brand/wordmark-ink.svg" alt="HOWstud.io" width="188" height="47">
+    </a>
+    <nav class="nav" id="site-nav" aria-label="Primary" data-nav>
+      <ul class="nav-list">
+        <li><a class="nav-link" href="index.html">Home</a></li>
+        <li><a class="nav-link" href="work.html">Work</a></li>
+        <li><a class="nav-link" href="capabilities.html">Capabilities</a></li>
+        <li><a class="nav-link" href="the-how.html">The HOW</a></li>
       </ul>
-      <h2>Intellectual Property</h2>
-      <p>All content, code, designs, and marketing materials on this site and our products are the property of HOW Studio LLC. Unauthorized reproduction or distribution is prohibited.</p>
-      <h2>Limitation of Liability</h2>
-      <p>HOWstud.io provides services as-is. We are not liable for any indirect, incidental, or consequential damages arising out of use or inability to use our services.</p>
-      <h2>Governing Law</h2>
-      <p>These terms are governed by the laws of the State of New Jersey. Any disputes will be resolved in the jurisdiction of Hudson County, NH.</p>
-      <h2>Contact</h2>
-      <p>HOW studio LLC | hello@howstud.io | Jersey City, NJ</p>
+      <a class="btn btn--primary" href="start-a-project.html">Start a Project
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 11.5 11.5 4.5M5.75 4.5h5.75v5.75"/></svg>
+      </a>
+    </nav>
+    <div class="header-actions">
+      <a class="btn btn--primary btn--sm" href="start-a-project.html">Start a Project
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 11.5 11.5 4.5M5.75 4.5h5.75v5.75"/></svg>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span class="visually-hidden" data-nav-label>Open menu</span>
+      </button>
     </div>
   </div>
-  <footer>
-    <div class="wrap">
-      <div class="footer-row">
-        <img class="footer-logo" src="assets/how-studio-logo-full-wh.png" alt="HOWstud.io" />
-        <nav class="footer-nav">
-          <a href="index.html#hows">Methodology</a><a href="index.html#services">Services</a><a href="projects.html">Work</a><a href="contact.html">Contact</a>
+</header>
+
+<main id="main">
+  <div class="wrap">
+    <div class="prose-wrap">
+      <aside class="prose-aside">
+        <p class="mono">Legal</p>
+        <p>Plain-language policies for this website and our studio services.</p>
+        <nav class="prose-nav" aria-label="On this page">
+          <a href="#acceptance">Acceptance</a>
+          <a href="#services">Services</a>
+          <a href="#website">Using this site</a>
+          <a href="#ip">Intellectual property</a>
+          <a href="#engagements">Engagements</a>
+          <a href="#liability">Disclaimers</a>
+          <a href="#law">Governing law</a>
+          <a href="#contact">Contact</a>
         </nav>
-      </div>
-      <div class="footer-bottom">
-        <div class="footer-copy">&copy; 2026 HOWstud.io, LLC. All rights reserved.<br>HOWstud.io is a registered trade name of HOW Studio LLC, Jersey City, NJ 07302.</div>
-        <div class="footer-legal">
-          <a href="privacy.html">Privacy Policy</a> &nbsp;&middot;&nbsp; <a href="terms.html">Terms of Service</a> &nbsp;&middot;&nbsp; <a href="contact.html">Contact</a><br>
-          HOWstud.io does not sell or share your personal data.<br>
-          All work and content &copy; HOWstud.io unless otherwise noted.
+      </aside>
+
+      <article class="prose">
+        <h1 class="h1">Terms of Service</h1>
+        <p class="updated">Last updated · October 24, 2026</p>
+
+        <h2 id="acceptance">Acceptance</h2>
+        <p>These terms apply to your use of howstud.io and to inquiries you send us. By using this website, you agree to them. If you don't agree, please don't use the site.</p>
+        <p>Client work is also governed by a separate written agreement — a proposal, statement of work, or contract — signed by you and HOW Studio LLC. Where that agreement conflicts with these terms, the signed agreement controls for that project.</p>
+
+        <h2 id="services">Who we are and what we do</h2>
+        <p>HOWstud.io is the trade name of HOW Studio LLC, a New Jersey limited liability company based in Jersey City. We are a creative digital studio: we design and build websites, custom software and applications, integrations and automation, and digital visibility improvements, and we support what we build.</p>
+        <p>Nothing on this website is an offer, a quote, or a guarantee of delivery. Availability, scope, fees, and timing are confirmed in writing.</p>
+
+        <h2 id="website">Using this site</h2>
+        <ul>
+          <li>Use the site for lawful purposes only.</li>
+          <li>Don't attempt to gain unauthorised access to the site, its systems, or other people's information.</li>
+          <li>Don't submit false contact details or use the inquiry form to send spam, bulk solicitations, or unlawful content.</li>
+          <li>Don't scrape or republish the site's content or design as your own.</li>
+        </ul>
+        <p>We may change, suspend, or remove any part of the site at any time.</p>
+
+        <h2 id="ip">Intellectual property</h2>
+        <p>The content, design, copy, code, and brand marks on this site belong to HOW Studio LLC, except where noted. Client names and third-party marks belong to their respective owners and are shown only with permission. The fonts used on this site are licensed under the SIL Open Font License and remain the property of their authors.</p>
+        <p>Ownership of project deliverables — and the licence you receive to use them — is set out in your project agreement. Unless that agreement says otherwise, we retain ownership of our underlying tools, methods, and reusable components, and you receive a licence to use the deliverables for their intended purpose.</p>
+
+        <h2 id="engagements">Inquiries, estimates, and engagements</h2>
+        <p>Sending an inquiry starts a conversation. It does not create a client relationship, reserve our time, or obligate either of us to proceed.</p>
+        <p>Estimates are based on the information available at the time and may change if scope changes. Work begins when a written agreement is in place and any deposit described in it has been received.</p>
+        <p>Unless we agree otherwise in writing, third-party costs — hosting, domains, software subscriptions, licences, stock imagery, fonts, and similar — are the client's responsibility.</p>
+
+        <h2 id="confidentiality">Confidentiality and portfolio use</h2>
+        <p>We treat project information as confidential and won't share your materials with others except as needed to deliver the work or as required by law.</p>
+        <p>We publish client work only with permission. We won't display your name, screenshots, or results on this site without your approval.</p>
+
+        <h2 id="third-party">Third-party links and tools</h2>
+        <p>This site and our projects may reference third-party websites, platforms, or services. We don't control them and aren't responsible for their content, availability, or privacy practices. Your use of a third-party service is governed by that provider's terms.</p>
+
+        <h2 id="liability">Disclaimers and limitation of liability</h2>
+        <p>This website is provided on an "as is" and "as available" basis. We work hard to keep the information accurate, but we don't warrant that the site will be uninterrupted, error-free, or complete.</p>
+        <p>To the fullest extent permitted by law, HOW Studio LLC is not liable for indirect, incidental, special, or consequential damages, or for lost profits, lost data, or business interruption, arising from your use of this site. Where liability cannot be excluded, our total liability relating to the website is limited to the amount you paid us for the services giving rise to the claim. Limits for project work are set out in the signed project agreement.</p>
+        <p>Nothing in these terms limits any liability that cannot be limited under applicable law.</p>
+
+        <h2 id="law">Governing law</h2>
+        <p>These terms are governed by the laws of the State of New Jersey, United States, without regard to conflict-of-law rules. Any dispute arising from these terms or this website will be handled in courts located in Hudson County, New Jersey, unless applicable law requires otherwise.</p>
+
+        <h2 id="changes">Changes to these terms</h2>
+        <p>We may update these terms from time to time. When we do, we'll update the date at the top of this page. Continuing to use the site after a change means you accept the updated terms.</p>
+
+        <h2 id="contact">Contact</h2>
+        <div class="contact-block">
+          HOW Studio LLC · HOWstud.io<br>
+          Jersey City, New Jersey, USA<br>
+          <a href="mailto:hello@howstud.io">hello@howstud.io</a>
         </div>
+        <p style="margin-top: 28px">See also our <a href="privacy.html">Privacy Policy</a>.</p>
+      </article>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="assets/brand/wordmark-cream.svg" alt="HOWstud.io" width="316" height="79">
+        <p class="tagline">Built for the work behind the work.</p>
+        <p class="sub">Creative thinking. Practical technology. Better ways of working.</p>
+      </div>
+      <div class="footer-col">
+        <h2>Explore</h2>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="work.html">Work</a></li>
+          <li><a href="capabilities.html">Capabilities</a></li>
+          <li><a href="the-how.html">The HOW</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Start</h2>
+        <ul>
+          <li><a href="start-a-project.html">Start a Project</a></li>
+          <li><a href="mailto:hello@howstud.io">hello@howstud.io</a></li>
+        </ul>
+        <a class="btn btn--light btn--sm footer-cta" href="start-a-project.html">Start a project</a>
+      </div>
+      <div class="footer-col">
+        <h2>Legal</h2>
+        <ul>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+        </ul>
       </div>
     </div>
-  </footer>
+    <div class="footer-bottom">
+      <p>© <span data-year>2026</span> HOWstud.io · HOW Studio LLC · Jersey City, NJ</p>
+      <div class="footer-legal">
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <span class="footer-mark"><span class="dot" aria-hidden="true"></span>Everything starts with HOW</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/site.js" defer></script>
 </body>
 </html>
